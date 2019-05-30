@@ -1,0 +1,18 @@
+- Build tech resume (that highlights C++ and Python skills)
+  - Projects
+    - ML (python)
+      - ...
+    - OS Simulation
+      - The kernel layer (C++, C, Asm)
+        - Scheduling
+        - Paging and memory management
+        - Deadlock detection and prevention
+        - File system
+        - Interrupts
+      - The shell layer (C++, C)
+        - Shell executable
+        - Shell-based configuration
+        - Shell commands while the OS is running (e.g. `PS`)
+      - The analytical layer (Python)
+        - Interactive dashboard that displays statistics on localhost
+        - ...
