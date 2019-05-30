@@ -4,7 +4,7 @@
 
 namespace tasks
 {
-typedef unsigned int tid_t;
+typedef int tid_t;
 struct task_t
 {
     tid_t tid;
