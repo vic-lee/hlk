@@ -1,6 +1,10 @@
 #include "fstream"
 #include "iostream"
 
+#include "planreader.h"
+
+namespace io
+{
 size_t check_indent(const std::string &line, const size_t linectr, unsigned int &ic)
 {
     size_t indent = 0;
@@ -22,17 +26,4 @@ size_t check_indent(const std::string &line, const size_t linectr, unsigned int 
     ic = indent;
     return indent;
 }
-
-int main(int argc, char *argv[])
-{
-    std::ifstream plan("in/sample.md");
-    std::string line;
-    size_t linectr = 0;
-    while (getline(plan, line))
-    {
-        unsigned int ic = 0;
-        check_indent(line, linectr, ic);
-        linectr++;
-    }
-    return 0;
-}
+} // namespace io
