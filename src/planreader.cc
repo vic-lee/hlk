@@ -41,6 +41,7 @@ void read_tasks(tasks::TaskManager& tmg, const std::string& fpath)
         {
             unsigned int ic = 0;
             io::check_indent(line, linectr, ic);
+            tmg.add_task(line.substr(ic + 2));  /* assume task begins w/ '- ' */
             linectr++;
         }
     }
