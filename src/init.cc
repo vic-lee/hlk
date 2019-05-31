@@ -5,13 +5,19 @@
 
 int main(int argc, char *argv[])
 {
+    std::string fpath;
     if (argc < 2)
     {
-        printf("Please provide a file name.\n");
-        return -1;
+        fpath = "in/sample.md";
+        printf("File name not provided, using `%s`.\n", fpath.c_str());
     }
-    std::string fpath = argv[1];
+    else
+    {
+        fpath = argv[1];
+    }
+
     tasks::TaskManager tmg = tasks::TaskManager();
     io::read_tasks(tmg, fpath);
+
     return 0;
 }
