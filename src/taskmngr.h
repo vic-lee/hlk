@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <map>
 
 #include "task.h"
@@ -15,6 +16,7 @@ public:
     bool find(tid_t tid);
     tid_t add(std::string taskname);
     tid_t add(std::string taskname, tid_t ptid);
+    friend std::ostream& operator<<(std::ostream &os, const TaskManager &tmg);
 private:
     static unsigned int taskctr_;
     static const unsigned int ROOT_;
