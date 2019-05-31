@@ -22,7 +22,7 @@ bool TaskManager::find(tid_t tid) { return tid < taskctr_; }
 std::ostream& operator<<(std::ostream &os, const TaskManager &tmg)
 {
     std::cout << "-------------------- Tasks --------------------\n";
-    std::cout << "TID\tPTID\tNAME";
+    std::cout << "TID \tPTID \tNAME";
     for (auto const &task : tmg.tasktable_)
     {
         std::cout << "\n" 
