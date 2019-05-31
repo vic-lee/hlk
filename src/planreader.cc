@@ -5,34 +5,33 @@
 
 namespace io
 {
-size_t check_indent(const std::string &line, const size_t linectr, unsigned int &ic)
+size_t check_indent(const std::string& line, const size_t linectr,
+                    unsigned int& ic)
 {
     size_t indent = 0;
-    for (const char &c : line)
+    for (const char& c : line)
     {
-        if (c > ' ')
-        {
+        if (c > ' ') 
             break;
-        }
-        else
-        {
+        else 
             indent++;
-        }
     }
+
     printf("~%zu \tindent (%zu):", linectr, indent);
-    for (int i = 0; i < indent; i++)
-        printf("_");
+    for (int i = 0; i < indent; i++) printf("_");
     printf("\n");
+    
     ic = indent;
     return indent;
 }
 
-void read_tasks(tasks::TaskManager &tmg, const std::string &fpath)
+void read_tasks(tasks::TaskManager& tmg, const std::string& fpath)
 {
     std::ifstream plan(fpath);
     if (!plan)
     {
-        std::cout << "The plan file `" << fpath << "` could not be opened.\n" << std::endl;
+        std::cout << "The plan file `" << fpath << "` could not be opened.\n"
+                  << std::endl;
         return;
     }
     else
