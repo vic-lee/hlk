@@ -9,17 +9,19 @@ namespace tasks
 {
 class TaskManager
 {
-typedef std::pair<tid_t, task_t> TDE_t;
-typedef std::map<tid_t, task_t> TaskTable;
-public:
+    typedef std::pair<tid_t, task_t> TDE_t;
+    typedef std::map<tid_t, task_t> TaskTable;
+
+  public:
+    static const unsigned int ROOT_;
     TaskManager();
     bool find(tid_t tid);
     tid_t add_task(std::string taskname);
     tid_t add_task(std::string taskname, tid_t ptid);
-    friend std::ostream& operator<<(std::ostream &os, const TaskManager &tmg);
-private:
+    friend std::ostream& operator<<(std::ostream& os, const TaskManager& tmg);
+
+  private:
     static unsigned int taskctr_;
-    static const unsigned int ROOT_;
     TaskTable tasktable_;
 };
-}
+} // namespace tasks
