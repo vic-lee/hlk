@@ -1,7 +1,8 @@
 - Build tech resume (that highlights C++ and Python skills)
   - Projects
     - ML (python)
-      - ...
+      - Learn ML
+      - Build ML
     - OS Simulation
       - The kernel layer (C++, C, Asm)
         - Scheduling
@@ -15,4 +16,3 @@
         - Shell commands while the OS is running (e.g. `PS`)
       - The analytical layer (Python)
         - Interactive dashboard that displays statistics on localhost
-        - ...
