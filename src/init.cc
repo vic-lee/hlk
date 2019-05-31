@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 
     tasks::TaskManager tmg = tasks::TaskManager();
     io::read_tasks(tmg, fpath);
+    std::cout << tmg << std::endl;
 
     return 0;
 }
