@@ -30,8 +30,7 @@ void read_tasks(tasks::TaskManager& tmg, const std::string& fpath)
     std::ifstream plan(fpath);
     if (!plan)
     {
-        std::cout << "The plan file `" << fpath << "` could not be opened.\n"
-                  << std::endl;
+        std::cout << "The plan file `" << fpath << "` could not be opened." << std::endl;
         return;
     }
     else
