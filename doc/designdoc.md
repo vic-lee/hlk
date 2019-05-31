@@ -1,4 +1,4 @@
-# planner
+# hlk design document
 
 This project aims to automate the planning and scheduling of a series of tasks, with hierarchical dependencies. The schedule is subject to the following constraints:
 
