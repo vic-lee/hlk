@@ -7,9 +7,9 @@ unsigned int TaskManager::taskctr_    = 1;
 
 TaskManager::TaskManager() {}
 
-tid_t TaskManager::add(std::string taskname) { return add(taskname, ROOT_); }
+tid_t TaskManager::add_task(std::string taskname) { return add_task(taskname, ROOT_); }
 
-tid_t TaskManager::add(std::string taskname, tid_t ptid)
+tid_t TaskManager::add_task(std::string taskname, tid_t ptid)
 {
     if (!find(ptid)) return -1;
     tid_t tid = taskctr_++;
@@ -25,9 +25,9 @@ std::ostream& operator<<(std::ostream &os, const TaskManager &tmg)
     std::cout << "TID\tPTID\tNAME\n";
     for (auto const &task : tmg.tasktable_)
     {
-        std::cout << task.second.tid
-                  << task.second.ptid
-                  << task.second.name.c_str();
+        std::cout << task.second.tid << "\t"
+                  << task.second.ptid << "\t"
+                  << task.second.name << "\n";
     }
     return os;
 }

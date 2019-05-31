@@ -14,8 +14,8 @@ typedef std::map<tid_t, task_t> TaskTable;
 public:
     TaskManager();
     bool find(tid_t tid);
-    tid_t add(std::string taskname);
-    tid_t add(std::string taskname, tid_t ptid);
+    tid_t add_task(std::string taskname);
+    tid_t add_task(std::string taskname, tid_t ptid);
     friend std::ostream& operator<<(std::ostream &os, const TaskManager &tmg);
 private:
     static unsigned int taskctr_;
