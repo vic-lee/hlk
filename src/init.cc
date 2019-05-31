@@ -5,14 +5,13 @@
 
 int main(int argc, char *argv[])
 {
-    std::ifstream plan("in/sample.md");
-    std::string line;
-    size_t linectr = 0;
-    while (getline(plan, line))
+    if (argc < 2)
     {
-        unsigned int ic = 0;
-        io::check_indent(line, linectr, ic);
-        linectr++;
+        printf("Please provide a file name.\n");
+        return -1;
     }
+    std::string fpath = argv[1];
+    tasks::TaskManager tmg = tasks::TaskManager();
+    io::read_tasks(tmg, fpath);
     return 0;
 }
