@@ -94,8 +94,11 @@ void read_tasks(tasks::TaskManager& tmg, const std::string& fpath)
                 printf("Error in reading tasks, aborting...\n");
                 exit(1);
             }
-            prev_indent = curr_indent;
-            linectr++;
+            else
+            {
+                prev_indent = curr_indent;
+                linectr++;
+            }
         }
     }
 }
