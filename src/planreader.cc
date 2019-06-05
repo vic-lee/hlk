@@ -42,7 +42,7 @@ size_t parse_indent(std::string& line, const size_t linectr,
  */
 tasks::ChildDependencyModes parse_dependency_mode(std::string& line)
 {
-    tasks::ChildDependencyModes res = tasks::ChildDependencyModes::parallel;
+    tasks::ChildDependencyModes res = tasks::ChildDependencyModes::undefined;
     size_t close_bracket_pos        = line.find_first_of(ANGLE_BRACKET_CLOSE);
     if (close_bracket_pos != std::string::npos)
     {
@@ -54,6 +54,10 @@ tasks::ChildDependencyModes parse_dependency_mode(std::string& line)
                 if (mode == 'S')
                 {
                     res = tasks::ChildDependencyModes::sequential;
+                }
+                else if (mode == 'P')
+                {
+                    res = tasks::ChildDependencyModes::parallel;
                 }
                 line.erase(close_bracket_pos - 2, 3);
             }
