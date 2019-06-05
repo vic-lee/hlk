@@ -11,6 +11,8 @@ enum class ChildDependencyModes
     parallel    /* each subtask can be run in parallel (no mutual dependency) */
 };
 
+std::ostream& operator<<(std::ostream& os, const ChildDependencyModes& modes);
+
 typedef int tid_t;
 
 struct task_t
