@@ -88,14 +88,13 @@ void read_tasks(tasks::TaskManager& tmg, const std::string& fpath)
 
             tasks::ChildDependencyModes mode = parse_dependency_mode(line);
 
-            prev_tid = tmg.add_task(line, curr_ptid);
+            prev_tid = tmg.add_task(line, curr_ptid, mode);
             if (prev_tid < 0)
             {
                 printf("Error in reading tasks, aborting...\n");
                 exit(1);
             }
             prev_indent = curr_indent;
-
             linectr++;
         }
     }
