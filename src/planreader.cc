@@ -51,7 +51,7 @@ void read_tasks(tasks::TaskManager& tmg, const std::string& fpath)
 
             if (cur_indent > prev_indent) cur_ptid = prev_tid;
 
-            prev_tid = tmg.add_task(line.substr(ic + 2), cur_ptid);
+            prev_tid    = tmg.add_task(line.substr(ic + 2), cur_ptid);
             prev_indent = cur_indent;
             linectr++;
         }
