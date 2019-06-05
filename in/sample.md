@@ -1,5 +1,5 @@
 - Build tech resume (that highlights C++ and Python skills)
-  - Projects
+  - Write projects
     - ML (python)
       - Learn ML
       - Build ML
