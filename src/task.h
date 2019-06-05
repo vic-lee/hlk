@@ -4,7 +4,7 @@
 
 namespace tasks
 {
-enum ChildDependencyModes
+enum class ChildDependencyModes
 {
     sequential,
     parallel
