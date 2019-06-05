@@ -9,7 +9,7 @@
 namespace io
 {
 size_t check_indent(const std::string& line, const size_t linectr,
-                    unsigned int& ic)
+                    unsigned int& charloc)
 {
     size_t indent = 0;
     for (const char& c : line)
@@ -24,7 +24,7 @@ size_t check_indent(const std::string& line, const size_t linectr,
     for (int i = 0; i < indent; i++) printf("_");
     printf("\n");
 
-    ic = indent;
+    charloc = indent;
     return indent;
 }
 
@@ -46,12 +46,12 @@ void read_tasks(tasks::TaskManager& tmg, const std::string& fpath)
         tasks::tid_t curr_ptid = tasks::TaskManager::ROOT_;
         while (getline(plan, line))
         {
-            unsigned int ic    = 0;
-            size_t curr_indent = io::check_indent(line, linectr, ic);
+            unsigned int charloc = 0;
+            size_t curr_indent   = io::check_indent(line, linectr, charloc);
 
             if (curr_indent > prev_indent) curr_ptid = prev_tid;
 
-            prev_tid    = tmg.add_task(line.substr(ic + 2), curr_ptid);
+            prev_tid    = tmg.add_task(line.substr(charloc + 2), curr_ptid);
             prev_indent = curr_indent;
             linectr++;
         }
