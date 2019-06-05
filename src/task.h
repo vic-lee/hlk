@@ -6,8 +6,9 @@ namespace tasks
 {
 enum class ChildDependencyModes
 {
-    sequential,
-    parallel
+    undefined,  /* for tasks without subtasks (leaf nodes) */
+    sequential, /* each subtask is to be executed sequentially */
+    parallel    /* each subtask can be run in parallel (no mutual dependency) */
 };
 
 typedef int tid_t;
