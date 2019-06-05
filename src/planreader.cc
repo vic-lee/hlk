@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <stack>
 
 #include "planreader.h"
 
@@ -10,15 +11,24 @@ namespace io
 {
 const std::string WHITESPACE   = " \n\r\t\f\v";
 const char ANGLE_BRACKET_CLOSE = '>';
-// const char ANGLE_BRACKET_OPEN  = '<';
+const char TASK_START_SYM      = '-';
 
 size_t parse_indent(std::string& line, const size_t linectr,
                     unsigned int& char_cursor)
 {
+    /* find indent */
     size_t indent = line.find_first_not_of(WHITESPACE);
     line          = (indent == std::string::npos) ? "" : line.substr(indent);
 
-    /*      print indentation       */
+    /* Remove leading `- ` */
+    size_t start_sym_pos = line.find_first_of(TASK_START_SYM);
+    if (start_sym_pos != std::string::npos &&
+        start_sym_pos <= line.length() - 2)
+    {
+        line.erase(0, start_sym_pos + 2);
+    }
+
+    /* print indentation */
     printf("~%zu \tindent (%zu):", linectr, indent);
     for (int i = 0; i < indent; i++) printf("_");
     printf("\n");
@@ -78,7 +88,12 @@ void read_tasks(tasks::TaskManager& tmg, const std::string& fpath)
 
             tasks::ChildDependencyModes mode = parse_dependency_mode(line);
 
-            prev_tid    = tmg.add_task(line, curr_ptid);
+            prev_tid = tmg.add_task(line, curr_ptid);
+            if (prev_tid < 0)
+            {
+                printf("Error in reading tasks, aborting...\n");
+                exit(1);
+            }
             prev_indent = curr_indent;
 
             linectr++;
