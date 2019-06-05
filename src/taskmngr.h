@@ -16,6 +16,7 @@ class TaskManager
     static const unsigned int ROOT_;
     TaskManager();
     bool find(tid_t tid);
+    task_t* find_parent_of(tid_t tid);
     tid_t add_task(std::string taskname);
     tid_t add_task(std::string taskname, tid_t ptid, ChildDependencyModes mode);
     friend std::ostream& operator<<(std::ostream& os, const TaskManager& tmg);

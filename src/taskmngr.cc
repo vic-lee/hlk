@@ -23,6 +23,27 @@ tid_t TaskManager::add_task(std::string taskname, tid_t ptid,
 
 bool TaskManager::find(tid_t tid) { return tid < taskctr_; }
 
+/**
+ * Return pointer to a task's parent given the task's id, 
+ * or nullptr if this parent does not exist.
+ */
+task_t* TaskManager::find_parent_of(tid_t tid)
+{
+    if (!find(tid))
+    {
+        return nullptr;
+    }
+    else if (!find(tasktable_[tid].ptid))
+    {
+        return nullptr;
+    }
+    else
+    {
+        tid_t ptid = tasktable_[tid].ptid;
+        return &tasktable_[ptid];
+    }
+}
+
 std::ostream& operator<<(std::ostream& os, const TaskManager& tmg)
 {
     os << "-------------------- Tasks --------------------\n";
