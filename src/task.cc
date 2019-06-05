@@ -8,7 +8,7 @@ std::ostream& operator<<(std::ostream& os, const ChildDependencyModes& mode)
 {
     switch (mode)
     {
-    case ChildDependencyModes::undefined: os << "u"; break;
+    case ChildDependencyModes::undefined: os << "-"; break;
     case ChildDependencyModes::parallel: os << "P"; break;
     case ChildDependencyModes::sequential: os << "S"; break;
     }
